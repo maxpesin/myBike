@@ -1,0 +1,54 @@
+{{#each errors}}
+  <div class="alert alert-danger">{{text}}</div>
+{{else}}
+{{/each}}
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title" style="text-transform:uppercase;">{{vehicle.make}} {{vehicle.model}} {{vehicle.year}}</h4>
+    <img src="/{{vehicle.pic}}" alt="{{vehicle.pic}}">
+    <div class="card card-body text-center">
+      <h6>Tire Specifications</h6><br>
+
+      <div class="row">
+      <div class="col-sm-6 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <p><b>Tire Size Front:</b> {{vehicle.tires.specs.tireSize.tireSizeFront}}</p>
+            <p><b>Tire Size Rear:</b> {{vehicle.tires.specs.tireSize.tireSizeRear}}</p>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="col-sm-6 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <p><b>Tire Pressure Front:</b> {{vehicle.tires.specs.tirePressure.tirePressureFront}}</p>
+            <p><b>Tire Pressure Rear:</b> {{vehicle.tires.specs.tirePressure.tirePressureRear}}</p>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <h6>Service</h6><br>
+
+      <div class="row">
+      <div class="col-sm-6 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <p><b>Service Date:</b> {{vehicle.tires.service.0.serviceDate}}</p>
+            <p><b>Service Type:</b> {{vehicle.tires.service.0.serviceType.0.service}}</p>
+            <p><b>Brand:</b> {{vehicle.tires.service.0.serviceType.0.costParts.0.costBrand}} {{vehicle.tires.service.0.serviceType.0.costParts.0.costModel}}</p>
+            <p><b>Cost:</b> ${{vehicle.tires.service.0.serviceType.0.costParts.0.costPrice}}</p>
+            <p><b>Supplier:</b> {{vehicle.tires.service.0.serviceType.0.costParts.0.costSupplier}}</p>
+            <p><b>Supplier URL:</b> {{vehicle.tires.service.0.serviceType.0.costParts.0.costSupplierURL}}</p>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>

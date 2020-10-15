@@ -1,0 +1,53 @@
+<!--Style-->
+<style>
+#overlay3{
+  height:100%;
+  width:100%;
+  background-color:rgba(0, 0, 0, 1);
+  position:absolute;
+  left:0;
+  top:0;
+  z-index: 100; 
+ }
+#loader3{
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: calc(-50% + 22.5px);
+  background-color: #f25a41;
+  animation: rotatemove 1s infinite;
+}
+@keyframes rotatemove{
+  0%{
+    -webkit-transform: scale(1) translateX(0px);
+    -ms-transform: scale(1) translateX(0px);
+    -o-transform: scale(1) translateX(0px);
+    transform: scale(1) translateX(0px);
+  }
+  100%{
+    -webkit-transform: scale(2) translateX(45px);
+    -ms-transform: scale(2) translateX(45px);
+    -o-transform: scale(2) translateX(45px);
+    transform: scale(2) translateX(45px);
+  }
+}
+</style>
+
+<!--DOM-->
+<div id="overlay3">
+  <div id="loader3">
+  </div>
+</div>
+
+<!--Script-->
+<script>
+var overlay = document.getElementById("overlay");
+window.addEventListener('DOMContentLoaded', function(){
+  //overlay.style.display = 'none';
+});
+</script>

@@ -1,0 +1,68 @@
+<!--Style-->
+<style>
+#overlay2{
+  height:100%;
+  width:100%;
+  background-color:rgba(0, 0, 0, 1);
+  position:absolute;
+  left:0;
+  top:0;
+  z-index: 100; 
+ }
+#loader2:before, #loader2:after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: calc(-50% + 40px);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #f25a41;
+  animation: squaremove 2s ease-in-out infinite;
+}
+#loader2:after{
+  animation-delay: 1s;
+}
+@keyframes squaremove{
+  0%, 100%{
+    -webkit-transform: translate(0,0) rotate(0);
+    -ms-transform: translate(0,0) rotate(0);
+    -o-transform: translate(0,0) rotate(0);
+    transform: translate(0,0) rotate(0);
+  }
+  25%{
+    -webkit-transform: translate(40px,40px) rotate(45deg);
+    -ms-transform: translate(40px,40px) rotate(45deg);
+    -o-transform: translate(40px,40px) rotate(45deg);
+    transform: translate(40px,40px) rotate(45deg);
+  }
+  50%{
+    -webkit-transform: translate(0px,80px) rotate(0deg);
+    -ms-transform: translate(0px,80px) rotate(0deg);
+    -o-transform: translate(0px,80px) rotate(0deg);
+    transform: translate(0px,80px) rotate(0deg);
+  }
+  75%{
+    -webkit-transform: translate(-40px,40px) rotate(45deg);
+    -ms-transform: translate(-40px,40px) rotate(45deg);
+    -o-transform: translate(-40px,40px) rotate(45deg);
+    transform: translate(-40px,40px) rotate(45deg);
+  }
+}
+</style>
+
+<!--DOM-->
+<div id="overlay2">
+  <div id="loader2">
+  </div>
+</div>
+
+<!--Script-->
+<script>
+var overlay = document.getElementById("overlay");
+window.addEventListener('DOMContentLoaded', function(){
+  //overlay.style.display = 'none';
+});
+</script>

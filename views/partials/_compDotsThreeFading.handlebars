@@ -1,0 +1,61 @@
+<!--Style-->
+<style>
+#overlay6{
+  height:100%;
+  width:100%;
+  background-color:rgba(0, 0, 0, 1);
+  position:absolute;
+  left:0;
+  top:0;
+  z-index: 100; 
+ }
+#loader6 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#loader6 span{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #f25a41;
+  margin: 35px 5px;
+  opacity: 0;
+}
+#loader6 span:nth-child(1){
+  animation: opacitychange 1s ease-in-out infinite;
+}
+#loader6 span:nth-child(2){
+  animation: opacitychange 1s ease-in-out 0.33s infinite;
+}
+#loader6 span:nth-child(3){
+  animation: opacitychange 1s ease-in-out 0.66s infinite;
+}
+@keyframes opacitychange{
+  0%, 100%{
+    opacity: 0;
+  }
+  60%{
+    opacity: 1;
+  }
+}
+</style>
+
+<!--DOM-->
+<div id="overlay6">
+  <div id="loader6">
+    <span></span>
+    <span></span>
+    <span></span>
+   </div>
+</div>
+
+<!--Script-->
+<script>
+var overlay = document.getElementById("overlay");
+window.addEventListener('DOMContentLoaded', function(){
+  //overlay.style.display = 'none';
+});
+</script>

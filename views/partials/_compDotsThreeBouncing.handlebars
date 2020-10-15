@@ -1,0 +1,66 @@
+<!--Style-->
+<style>
+#overlay7{
+  height:100%;
+  width:100%;
+  background-color:rgba(0, 0, 0, 1);
+  position:absolute;
+  left:0;
+  top:0;
+  z-index: 100; 
+ }
+#loader7{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#loader7 span{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #f25a41;
+  margin: 0 5px;
+}
+#loader7 span:nth-child(1){
+  animation: bounce 1s ease-in-out infinite;
+}
+#loader7 span:nth-child(2){
+  animation: bounce 1s ease-in-out 0.33s infinite;
+}
+#loader7 span:nth-child(3){
+  animation: bounce 1s ease-in-out 0.66s infinite;
+}
+@keyframes bounce{
+  0%, 75%, 100%{
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+  25%{
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+}
+</style>
+
+<!--DOM-->
+<div id="overlay7">
+  <div id="loader7">
+    <span></span>
+    <span></span>
+    <span></span>
+   </div>
+</div>
+
+<!--Script-->
+<script>
+var overlay = document.getElementById("overlay");
+window.addEventListener('DOMContentLoaded', function(){
+  //overlay.style.display = 'none';
+});
+</script>

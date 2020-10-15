@@ -1,0 +1,100 @@
+<!--Style-->
+<style>
+#overlay10{
+  height:100%;
+  width:100%;
+  background-color:rgba(0, 0, 0, 1);
+  position:absolute;
+  left:0;
+  top:0;
+  z-index: 100; 
+ }
+.loader10 {
+  height: 40px;
+  width: 40px;
+  font-size: 10vmin;
+  background-color: #f25a41;
+  position: absolute;
+  top: calc(50% - 60px);
+  left: calc(-50% + 80px);
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+  -webkit-animation: box-flip 4s ease-in-out infinite;
+          animation: box-flip 4s ease-in-out infinite;
+}
+.loader10:nth-child(2) {
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+
+@-webkit-keyframes box-flip {
+  16.6666666667% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  33.3333333333% {
+    -webkit-transform: rotate(0.5turn);
+            transform: rotate(0.5turn);
+  }
+  50% {
+    -webkit-transform: rotate(0.5turn);
+            transform: rotate(0.5turn);
+  }
+  66.6666666667% {
+    -webkit-transform: rotate(0.75turn);
+            transform: rotate(0.75turn);
+  }
+  83.3333333333% {
+    -webkit-transform: rotate(0.75turn);
+            transform: rotate(0.75turn);
+  }
+  100% {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+@keyframes box-flip {
+  16.6666666667% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  33.3333333333% {
+    -webkit-transform: rotate(0.5turn);
+            transform: rotate(0.5turn);
+  }
+  50% {
+    -webkit-transform: rotate(0.5turn);
+            transform: rotate(0.5turn);
+  }
+  66.6666666667% {
+    -webkit-transform: rotate(0.75turn);
+            transform: rotate(0.75turn);
+  }
+  83.3333333333% {
+    -webkit-transform: rotate(0.75turn);
+            transform: rotate(0.75turn);
+  }
+  100% {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+/* ---------------------------------- */
+</style>
+
+<!--DOM-->
+<div id="overlay10">
+<div class="loader10"></div>
+<div class="loader10"></div>
+</div>
+<!--Script-->
+<script>
+var overlay = document.getElementById("overlay");
+window.addEventListener('DOMContentLoaded', function(){
+  //overlay.style.display = 'none';
+});
+</script>

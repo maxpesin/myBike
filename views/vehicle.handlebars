@@ -1,0 +1,130 @@
+<h1>Vehicles</h1>
+<br>
+<!--- TAB NAV --->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="true" onclick="historyTab()">History</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" id="current-tab" data-toggle="tab" href="#current" role="tab" aria-controls="current" aria-selected="false" onclick="currentTab()">Current</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="future-tab" data-toggle="tab" href="#future" role="tab" aria-controls="future" aria-selected="false" onclick="futureTab()">Future</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="false" onclick="contactTab()">All</a>
+  </li>
+</ul>
+
+<!--- HISTORY VEHICLE --->
+<div class="tab-content mt-4 mb-4 text-center" id="myTabContent">
+
+  <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+    <div class="mb-4" style="font-weight:bold;">History vehicle list</div>
+    {{#each vehicle}}
+
+    {{#if history}}
+        <div class="col-sm-6 mb-3" style="float:left;">
+          <div class="card text-center">
+            <div class="card-body">
+              <div class="btn-group" style="float:right;">
+                <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item">
+                    <a style="width:60px;" class="btn btn-dark btn-sm" href="/vehicle/edit/{{id}}">Edit</a>
+                  </div>
+                  <form class="dropdown-item" method="post" action="/vehicle/{{id}}?_method=DELETE">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input style="width:60px;" type="submit" class="btn btn-danger btn-sm" value="Delete">
+                    </form>
+                </div>
+              </div>
+              <a style="color:black;text-decoration:none;" href="/vehicle/mybike/{{id}}"><h4 class="card-title" style="text-transform:uppercase;">{{make}} {{model}}</h4></a>
+              <p class="card-text">{{year}}</p>
+              <img src="{{pic}}" alt="{{pic}}">
+            </div>
+          </div>
+        </div>
+        {{/if}}
+
+    {{else}}
+      <p>No vehicles listed</p>
+    {{/each}}
+  </div>
+
+<!--- CURRENT VEHICLE --->
+  <div class="tab-pane fade show active" id="current" role="tabpanel" aria-labelledby="current-tab">
+    <div class="mb-4" style="font-weight:bold;">Current vehicle list</div>
+    {{#each vehicle}}
+    {{#if current}}
+        <div class="col-sm-6 mb-3" style="float:left;">
+          <div class="card text-center">
+            <div class="card-body">
+              <div class="btn-group" style="float:right;">
+                <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item">
+                    <a style="width:60px;" class="btn btn-dark btn-sm" href="/vehicle/edit/{{id}}">Edit</a>
+                  </div>
+                  <form class="dropdown-item" method="post" action="/vehicle/{{id}}?_method=DELETE">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input style="width:60px;" type="submit" class="btn btn-danger btn-sm" value="Delete">
+                    </form>
+                </div>
+              </div>
+              <a style="color:black;text-decoration:none;" href="/vehicle/mybike/{{id}}"><h4 class="card-title" style="text-transform:uppercase;">{{make}} {{model}}</h4></a>
+              <p class="card-text">{{year}}</p>
+              <img src="{{pic}}" alt="{{pic}}">
+            </div>
+          </div>
+        </div>
+        {{/if}}
+    {{else}}
+      <p>No vehicles listed</p>
+    {{/each}}
+  </div>
+
+<!--- FUTURE VEHICLE --->
+  <div class="tab-pane fade" id="future" role="tabpanel" aria-labelledby="future-tab">
+    <div class="mb-4" style="font-weight:bold;">Future vehicle list</div>
+    {{#each vehicle.state}}
+    {{else}}
+      <p>No vehicles listed</p>
+    {{/each}}
+  </div>
+
+<!--- ALL VEHICLE --->
+  <div class="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab">
+    <div class="mb-4" style="font-weight:bold;">All vehicle list</div>
+    {{#each vehicle}}
+    <div class="col-sm-6 mb-3" style="float:left;">
+      <div class="card text-center">
+        <div class="card-body">
+           <div class="btn-group" style="float:right;">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu">
+              <div class="dropdown-item">
+                <a style="width:60px;" class="btn btn-dark btn-sm" href="/vehicle/edit/{{id}}">Edit</a>
+              </div>
+              <form class="dropdown-item" method="post" action="/vehicle/{{id}}?_method=DELETE">
+                <input type="hidden" name="_method" value="DELETE">
+                <input style="width:60px;" type="submit" class="btn btn-danger btn-sm" value="Delete">
+                </form>
+            </div>
+          </div>
+          <a style="color:black;text-decoration:none;" href="/vehicle/mybike/{{id}}"><h4 class="card-title" style="text-transform:uppercase;">{{make}} {{model}}</h4></a>
+          <p class="card-text">{{year}}</p>
+          <img src="{{pic}}" alt="{{pic}}">
+          <h6 class="text-left" style="text-transform:uppercase;">{{state}}</h6>
+        </div>
+      </div>
+    </div>
+    {{else}}
+      <p>No vehicles listed</p>
+    {{/each}}
+  </div>
+
+</div>

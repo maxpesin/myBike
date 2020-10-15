@@ -1,0 +1,80 @@
+{{#each errors}}
+  <div class="alert alert-danger">{{text}}</div>
+{{else}}
+{{/each}}
+
+<div class="card card-body">
+  <h3>Add Vehicle</h3>
+  <form action="/vehicle" method="post">
+
+    <div class="form-group">
+      <label for="state">State</label>
+      <select class="form-control" name="state">
+        <option value="current">Current</option>
+        <option value="history">History</option>
+        <option value="future">Future</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="make">Make</label>
+      <select class="form-control" name="make" required>
+        <option value=""></option>
+        <option value="acura">Acura</option>
+        <option value="kawasaki">Kawasaki</option>
+        <option value="nissan">Nissan</option>
+        <option value="yamaha">Yamaha</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="model">Model</label>
+      <select class="form-control" name="model" required>
+        <option value=""></option>
+        <option value="yzf r1">YZF R1</option>
+        <option value="tl type-s">TL Type-S</option>
+        <option value="sentra se">Sentra SE</option>
+        <option value="ninja 250r">Ninja 250R</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="year">Year</label>
+      <select class="form-control" name="year" required>
+        <option value=""></option>
+        <option value="2009">2009</option>
+        <option value="2008">2008</option>
+        <option value="2007">2007</option>
+        <option value="2006">2006</option>
+        <option value="2005">2005</option>
+        <option value="2004">2004</option>
+        <option value="2003">2003</option>
+        <option value="2002">2002</option>
+        <option value="2001">2001</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="pic">Picture</label>
+      <select class="form-control" name="pic">
+        <option value=""></option>
+        <option value="2002_Yamaha_YZF_R1.jpg">02 YZF R1</option>
+        <option value="2008_Yamaha_YZF_R1.jpg">08 YZF R1</option>
+        <option value="2008_Acura_TL_S.png">TL Type-S</option>
+        <option value="2001_Nissan_Sentra_SE.jpg">01 Sentra SE</option>
+        <option value="2009_Kawasaki_Ninja_250R.jpg">Ninja 250R</option>
+      </select>
+    </div>
+
+    <!--<div class="form-group">
+          <label for="model">Model</label>
+          <input type="text" class="form-control" name="model">
+        </div>
+        <div class="form-group">
+          <label for="details">Details</label>
+          <textarea class="form-control" name="details"></textarea>
+        </div>-->
+        
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </form>
+</div>

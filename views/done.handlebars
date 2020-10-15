@@ -1,0 +1,165 @@
+<style>
+.input-zone {
+    margin-bottom: 50px;
+}
+.body-zone {
+    width:80%;
+    margin:0 auto;
+}
+.ul {
+    list-style: none;
+    margin: 0 auto;
+}
+.li {
+    text-align: left;
+    padding: 5px 10px;
+    color: #000;
+    max-width: 100%;
+    cursor: pointer;
+}
+.title{
+    font-size: 25px;
+    margin-left: 40px;
+}
+.style-checkbox {
+    position: absolute;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 20px;
+    color: red;
+}
+.sub-button {
+    cursor: pointer;
+    font-size: 10px;
+    margin-left: -40px;
+}
+.p-input {
+  text-align:center;
+  width: 100%;
+}
+.input-field {
+  width: 60%;
+}
+.logo {
+    font-size: 25px;
+}
+</style>
+
+<!-- HTML -->
+<div class="card">
+    <div class="card-body">
+        <div class="input-zone">
+            <h1 class="logo"><i>Done</i><b>List</b></h1>
+            <p class="p-input">
+                <input id="item-title" type="text" placeholder="Enter your item" class="input-field">
+                <button id="btnAddItem" title="Add item"> + Add a task</button>
+            </p>
+        </div>
+        <div class="body-zone">
+            <ul id="unordered-list" class="ul">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+//GLOBAL VARIABLES
+var btnAddItem = document.getElementById("btnAddItem");
+var inputTitle = document.getElementById("item-title");
+var listItem
+var listActive
+var ListDisabled
+var thisElm
+
+// ACTIVE & DISABLED
+function itemState(checked) {
+    listActive = "list-active li";
+    listDisabled = "list-disabled li";
+    listItem = checked[0];
+    
+    if (listItem.classList.contains("list-active")) {
+        listItem.classList.remove("list-active");
+        listItem.classList.add("list-disabled");
+        listItem.childNodes[2].style.textDecoration = "line-through";
+    }
+    else if (listItem.classList.contains("list-disabled")) {
+        listItem.classList.remove("list-disabled");
+        listItem.classList.add("list-active");
+        listItem.childNodes[2].style.textDecoration = "none";
+    }
+    else {
+        console.log('not executing other statements!');
+    };
+};
+
+// COLLAPSE & EXPAND SUBTASKS
+function subDisplay(displaySubs) {
+    var subArray = displaySubs;
+
+    for (var i = 0; i < subArray.length; i++) {
+        if (subArray[i].classList.contains('open-list')) {
+            subArray[i].classList.remove('open-list');
+            subArray[i].classList.add('close-list');
+            subArray[i].style.display = "none";
+        } else {
+            subArray[i].classList.remove('close-list');
+            subArray[i].classList.add('open-list');
+            subArray[i].style.display = "block";
+        }
+    };
+};
+
+//ADD FROM INPUT FIELD
+function addNewItem(list, inputTitleText) {
+    var newItem = document.createElement("li");
+    var newAddSub = document.createElement("button");
+    var newCheckbox = document.createElement("input");
+    var newTitle = document.createElement("span");
+    var newDownSub = document.createElement("ion-icon");
+    var newDivList = document.getElementBy
+// list item    
+    newItem.className = "list-active li";
+// add sub button    
+    newAddSub.className = "sub-button";
+    newAddSub.innerText = "+";
+    newAddSub.setAttribute('onclick','clickedSub($(this).parent())');
+// checkbox
+    newCheckbox.type = "checkbox";
+    newCheckbox.className = "style-checkbox";
+    newCheckbox.setAttribute('onclick', 'itemState($(this).parent())');
+// title    
+    newTitle.className = "title";
+    newTitle.innerText = inputTitleText;
+// arrow
+    newDownSub.name = "arrow-dropdown";
+    newDownSub.setAttribute('onclick', 'subDisplay($(this).parent().children("ul"))');
+    newDownSub.classname = "down-arrow";
+// appendHTML
+    newItem.appendChild(newAddSub);
+    newItem.appendChild(newCheckbox);
+    newItem.appendChild(newTitle);
+    newItem.appendChild(newDownSub);
+    list.appendChild(newItem);  
+};
+
+// INPUT TASK FUNCTION
+btnAddItem.onclick = function() {
+    var inputTitleText = inputTitle.value;
+    if (inputTitleText == "" || inputTitleText == " ") {
+        return false;
+    }
+    addNewItem(document.getElementById("unordered-list"), inputTitleText);
+    inputTitle.select();
+};
+
+// INPUT SUBTASK FUNCTION 
+function clickedSub(thisElement) {
+    thisElm = thisElement[0];
+    var inputTitleText = "new sub";
+    list = document.createElement("ul");
+    list.className = "ul open-list";
+    addNewItem(list, inputTitleText);
+    thisElm.appendChild(list);
+};
+</script>

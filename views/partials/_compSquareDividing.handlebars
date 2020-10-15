@@ -1,0 +1,96 @@
+<!--Style-->
+<style>
+#overlay5{
+  height:100%;
+  width:100%;
+  background-color:rgba(0, 0, 0, 1);
+  position:absolute;
+  left:0;
+  top:0;
+  z-index: 100; 
+ }
+#loader5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#loader5 span{
+  display: block;
+  position: absolute;
+  left: calc(50% - 20px);
+  top: calc(50% - 20px);
+  width: 20px;
+  height: 20px;
+  background-color: #f25a41;
+}
+#loader5 span:nth-child(2){
+  animation: moveanimation1 1s ease-in-out infinite;
+}
+#loader5 span:nth-child(3){
+  animation: moveanimation2 1s ease-in-out infinite;
+}
+#loader5 span:nth-child(4){
+  animation: moveanimation3 1s ease-in-out infinite;
+}
+@keyframes moveanimation1{
+  0%, 100%{
+    -webkit-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    -o-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  75%{
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    -o-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+}
+@keyframes moveanimation2{
+  0%, 100%{
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  75%{
+    -webkit-transform: translateY(30px);
+    -ms-transform: translateY(30px);
+    -o-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+}
+@keyframes moveanimation3{
+  0%, 100%{
+    -webkit-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    -o-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+  75%{
+    -webkit-transform: translate(30px, 30px);
+    -ms-transform: translate(30px, 30px);
+    -o-transform: translate(30px, 30px);
+    transform: translate(30px, 30px);
+  }
+}
+</style>
+
+<!--DOM-->
+<div id="overlay5">
+  <div id="loader5">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<!--Script-->
+<script>
+var overlay = document.getElementById("overlay");
+window.addEventListener('DOMContentLoaded', function(){
+  //overlay.style.display = 'none';
+});
+</script>

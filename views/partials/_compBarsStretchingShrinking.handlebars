@@ -1,0 +1,68 @@
+<!--Style-->
+<style>
+#overlay1{
+  height:100%;
+  width:100%;
+  background-color:rgba(0, 0, 0, 1);
+  position:absolute;
+  left:0;
+  top:0;
+  z-index: 100; 
+ }
+#loader1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} 
+#loader1 span{
+  display: inline-block;
+  width: 5px;
+  height: 20px;
+  background-color: #f25a41;
+}
+#loader1 span:nth-child(1){
+  animation: grow 1s ease-in-out infinite;
+}
+#loader1 span:nth-child(2){
+  animation: grow 1s ease-in-out 0.15s infinite;
+}
+#loader1 span:nth-child(3){
+  animation: grow 1s ease-in-out 0.30s infinite;
+}
+#loader1 span:nth-child(4){
+  animation: grow 1s ease-in-out 0.45s infinite;
+}
+@keyframes grow{
+  0%, 100%{
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  50%{
+    -webkit-transform: scaleY(1.8);
+    -ms-transform: scaleY(1.8);
+    -o-transform: scaleY(1.8);
+    transform: scaleY(1.8);
+  }
+}
+</style>
+
+<!--DOM-->
+<div id="overlay1">
+  <div id="loader1">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<!--Script-->
+<script>
+var overlay = document.getElementById("overlay");
+window.addEventListener('DOMContentLoaded', function(){
+  //overlay.style.display = 'none';
+});
+</script>
